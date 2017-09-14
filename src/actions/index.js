@@ -1,3 +1,6 @@
+import * as ReadableAPIUtil from '../util/readable_api_util'
+
+export const GET_CATEGORIES = 'GET_CATEGORIES'
 export const ADD_POST = 'ADD_POST'
 export const ADD_COMMENT = 'ADD_COMMENT'
 
@@ -14,3 +17,14 @@ export function addComment({ timestamp }) {
 		timestamp
 	}
 }
+
+export const getCategories = categories => ({
+	type: GET_CATEGORIES,
+	categories
+})
+
+export const fetchCategories = () => dispatch => (
+	ReadableAPIUtil
+		.fetchCategories()
+		.then(categories => dispatch(getCategories(categories)))
+)
