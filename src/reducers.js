@@ -1,18 +1,19 @@
 import {
 	GET_CATEGORIES,
+	RECEIVE_CATEGORIES,
 	ADD_POST,
 	ADD_COMMENT
-} from '../actions'
+} from './actions'
 import { combineReducers } from 'redux'
 
 function basic (state = {}, action) {
 	switch (action.type) {
-		case GET_CATEGORIES:
-			const { recipe } = action
+		case RECEIVE_CATEGORIES:
+			const { categories } = action
 
 			return {
 				...state,
-				[recipe.label]: recipe
+				cetegories: categories
 			}
 		default:
 		 return state
