@@ -1,6 +1,7 @@
 import {
 	GET_CATEGORIES,
 	RECEIVE_CATEGORIES,
+	REQUEST_CATEGORIES,
 	ADD_POST,
 	ADD_COMMENT
 } from './actions'
@@ -10,11 +11,16 @@ function basic (state = {}, action) {
 	switch (action.type) {
 		case RECEIVE_CATEGORIES:
 			const { categories } = action
-
-			return {
-				...state,
-				cetegories: categories
-			}
+			console.log(categories);
+			return Object.assign({}, state, {
+				categoriesPending: true,
+				categories: categories
+			})
+		case REQUEST_CATEGORIES:
+		    return Object.assign({}, state, {
+				categoriesPending: true,
+				categories: []
+			})
 		default:
 		 return state
 	}

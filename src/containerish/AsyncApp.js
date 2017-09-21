@@ -11,11 +11,13 @@ class AsyncApp extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props)
     const { dispatch } = this.props
     dispatch(getCategories())
   }
 
   render() {
+    console.log(this.props)
     const { categories } = this.props
     return (
       <div>
@@ -28,15 +30,15 @@ class AsyncApp extends Component {
 }
 
 AsyncApp.propTypes = {
-  categories: PropTypes.array.isRequired,
   dispatch: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {
-  const { categories } = state
-
+  const { categories, categoriesPending } = state
+  console.log(categories)
   return {
-    categories
+    categoriesPending: categoriesPending,
+    categories: categories
   }
 }
 

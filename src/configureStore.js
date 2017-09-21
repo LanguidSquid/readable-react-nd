@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
+import { getCategories } from './actions'
 import { createLogger } from 'redux-logger'
 import rootReducer from './reducers'
 
@@ -10,6 +11,7 @@ const logger = store => next => action => {
 	console.info('dispatcing', action)
 	let result = next(action)
 	console.log('next state', store.getState())
+  console.log(result)
 	console.groupEnd(action.type)
 	return result
 }
