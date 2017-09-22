@@ -7,13 +7,13 @@ import rootReducer from './reducers'
 const loggerMiddleware = createLogger()
 
 const logger = store => next => action => {
-	console.group(action.type)
-	console.info('dispatcing', action)
-	let result = next(action)
-	console.log('next state', store.getState())
+  console.group(action.type)
+  console.info('dispatcing', action)
+  let result = next(action)
+  console.log('next state', store.getState())
   console.log(result)
-	console.groupEnd(action.type)
-	return result
+  console.groupEnd(action.type)
+  return result
 }
 
 export default function configureStore(preloadedState) {

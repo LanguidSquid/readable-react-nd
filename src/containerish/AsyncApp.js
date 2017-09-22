@@ -22,7 +22,7 @@ class AsyncApp extends Component {
     return (
       <div>
         <p>
-        	{categories}
+          {categories}
         </p>
       </div>
     )
