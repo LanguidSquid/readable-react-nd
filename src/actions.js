@@ -10,17 +10,17 @@ export const ADD_COMMENT = 'ADD_COMMENT'
 const url = `http://localhost:3001/categories`;
 
 export function addPost({ timestamp }) {
-	return {
-		type: ADD_POST,
-		timestamp
-	}
+  return {
+    type: ADD_POST,
+    timestamp
+  }
 }
 
 export function addComment({ timestamp }) {
-	return {
-		type: ADD_COMMENT,
-		timestamp
-	}
+  return {
+    type: ADD_COMMENT,
+    timestamp
+  }
 }
 
 function requestCategories() {
@@ -41,7 +41,7 @@ export function getCategories() {
     dispatch(requestCategories())
     return fetch(`http://localhost:3001/categories`, { headers: { 'Authorization': 'whatever-you-want' }} )
       .then(response => {
-      	return response.json()
+        return response.json()
       })
       .then(json => dispatch(receiveCategories(json.categories)))
   }
