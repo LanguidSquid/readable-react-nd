@@ -30,6 +30,7 @@ function requestCategories() {
 }
 
 function receiveCategories(json) {
+  console.log(json)
   return {
     type: RECEIVE_CATEGORIES,
     categories: json
@@ -41,6 +42,7 @@ export function getCategories() {
     dispatch(requestCategories())
     return fetch(`http://localhost:3001/categories`, { headers: { 'Authorization': 'whatever-you-want' }} )
       .then(response => {
+        console.log(response)
         return response.json()
       })
       .then(json => dispatch(receiveCategories(json.categories)))

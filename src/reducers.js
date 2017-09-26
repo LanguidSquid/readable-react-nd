@@ -7,20 +7,16 @@ import {
 } from './actions'
 import { combineReducers } from 'redux'
 
-function handleCategories (state = {}, action) {
+function categories (state = {}, action) {
   switch (action.type) {
     case RECEIVE_CATEGORIES:
       const { categories } = action
-      console.log(categories);
+      console.log(categories)
       return Object.assign({}, state, {
-        categoriesPending: false,
         categories: categories
       })
     case REQUEST_CATEGORIES:
-        return Object.assign({}, state, {
-        categoriesPending: true,
-        categories: []
-      })
+      return state
     default:
       return state
   }
@@ -45,7 +41,7 @@ function handleComments (state = {}, action) {
 }
 
 export default combineReducers({
-  handleCategories,
+  categories,
   handlePosts,
   handleComments
 })

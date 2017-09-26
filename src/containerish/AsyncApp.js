@@ -16,15 +16,26 @@ class AsyncApp extends Component {
     dispatch(getCategories())
   }
 
+  isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+  }
+
   render() {
-    console.log(this.props)
+    console.log(this.props.categories)
     const { categories } = this.props
     return (
       <div>
-        <p>
-          {categories}
-        </p>
-      </div>
+        {!this.isEmpty(categories)}
+        {!this.isEmpty(categories) && categories.map(category => (
+          <p>
+            category.name
+          </p>
+        ))}
+        </div>
     )
   }
 }
@@ -34,12 +45,26 @@ AsyncApp.propTypes = {
 }
 
 function mapStateToProps(state) {
-  const { categories, categoriesPending } = state
-  console.log(categories)
-  return {
-    categoriesPending: categoriesPending,
-    categories: categories
+  function isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
   }
+
+  const { categories } = state
+  if(isEmpty(categories)){
+    return {
+      categories: []
+    }
+  }else {
+    console.log(categories)
+    return {
+      categories
+    }
+  }
+
 }
 
 export default connect(mapStateToProps)(AsyncApp)
