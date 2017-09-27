@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import '../App.css';
+import '../index.css';
 import {
-  getCategories
+  getCategories,
+  getPosts
 } from '../actions'
 
 class AsyncApp extends Component {
@@ -14,6 +17,7 @@ class AsyncApp extends Component {
     console.log(this.props)
     const { dispatch } = this.props
     dispatch(getCategories())
+    dispatch(getPosts())
   }
 
   isEmpty(obj) {
@@ -25,17 +29,27 @@ class AsyncApp extends Component {
   }
 
   render() {
-    console.log(this.props.categories)
     const { categories } = this.props
     return (
-      <div>
-        {!this.isEmpty(categories)}
-        {!this.isEmpty(categories) && categories.map(category => (
-          <p>
-            category.name
-          </p>
-        ))}
+      <div className="App">
+        <div className="App-header">
+          <div className="topDiv"></div>
+          <div className="table">
+            <ul className="MenuBar">
+              <li>
+                home
+              </li>
+            {!!categories && !!categories.categories && categories.categories.map(category => (
+              <li>
+                {category.name}
+              </li>
+            ))}
+            </ul>
+          </div>
         </div>
+        <div className="content">
+        </div>
+      </div>
     )
   }
 }
@@ -53,16 +67,10 @@ function mapStateToProps(state) {
     return true;
   }
 
-  const { categories } = state
-  if(isEmpty(categories)){
-    return {
-      categories: []
-    }
-  }else {
-    console.log(categories)
-    return {
-      categories
-    }
+  const { categories, posts } = state
+  return {
+    categories,
+    posts
   }
 
 }

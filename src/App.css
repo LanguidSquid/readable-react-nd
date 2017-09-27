@@ -2,16 +2,41 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
+  position: relative;
   background-color: #222;
-  height: 150px;
+  height: 75px;
   padding: 20px;
   color: white;
+}
+
+li {
+  list-style: none;
+  display: inline;
+  text-align: center;
+  margin: 7px;
+  font-size: 20px;
+  cursor: pointer;
+  -webkit-transition: color .5s;
+  transition: color .5s;
+}
+
+li:hover {
+  color: #ADD8E6;
+}
+
+.topDiv {
+  height: 50px;
+}
+
+.table {
+  margin: 0 auto;
+}
+
+.MenuBar {
+  display: inline;
+  bottom: 0;
+  padding: 0;
 }
 
 .App-intro {
