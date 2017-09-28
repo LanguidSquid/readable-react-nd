@@ -1,5 +1,11 @@
+body {
+  height: 100%;
+  background-color: #f4f4ef;
+}
+
 .App {
   text-align: center;
+  background-color: #f4f4ef;
 }
 
 .App-header {
@@ -47,3 +53,23 @@ li:hover {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+div.Post {
+  background-color: #f4f4ef;
+  padding: 0% 30%;
+}
+
+/*div.Post > label {
+  background-color: #f4f4ef;
+  font-size: 18px;
+  text-align: left;
+  float: left;
+}
+
+
+div.Post > p {
+  background-color: #f4f4ef;
+  float: left;
+  margin-top: 16px;
+  margin-left: 8px;
+}*/

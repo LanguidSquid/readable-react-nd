@@ -29,7 +29,9 @@ class AsyncApp extends Component {
   }
 
   render() {
-    const { categories } = this.props
+    const { categories, posts } = this.props
+    console.log(posts)
+    console.log(JSON.stringify(posts))
     return (
       <div className="App">
         <div className="App-header">
@@ -39,7 +41,7 @@ class AsyncApp extends Component {
               <li>
                 home
               </li>
-            {!!categories && !!categories.categories && categories.categories.map(category => (
+            {!this.isEmpty(categories) && categories.categories.map(category => (
               <li>
                 {category.name}
               </li>
@@ -48,6 +50,16 @@ class AsyncApp extends Component {
           </div>
         </div>
         <div className="content">
+          {!this.isEmpty(posts) && posts.posts.map(post => (
+            <div className="Post">
+              <label>
+                {post.title}
+              </label>
+              <p>
+                {post.body}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     )

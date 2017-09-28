@@ -3,6 +3,7 @@ import {
   RECEIVE_CATEGORIES,
   REQUEST_CATEGORIES,
   ADD_POST,
+  RECEIVE_POSTS,
   ADD_COMMENT
 } from './actions'
 import { combineReducers } from 'redux'
@@ -13,7 +14,7 @@ function categories (state = {}, action) {
       const { categories } = action
       console.log(categories)
       return Object.assign({}, state, {
-        categories: categories
+        categories
       })
     case REQUEST_CATEGORIES:
       return state
@@ -22,10 +23,16 @@ function categories (state = {}, action) {
   }
 }
 
-function handlePosts (state = {}, action) {
+function posts (state = {}, action) {
   switch (action.type) {
     case ADD_POST:
       return state
+    case RECEIVE_POSTS:
+      const { posts } = action
+      console.log(posts)
+      return Object.assign({}, state, {
+        posts
+      })
     default:
       return state
   }
@@ -42,6 +49,6 @@ function handleComments (state = {}, action) {
 
 export default combineReducers({
   categories,
-  handlePosts,
+  posts,
   handleComments
 })
