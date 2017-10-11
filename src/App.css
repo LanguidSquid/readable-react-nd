@@ -55,8 +55,51 @@ li:hover {
 }
 
 div.Post {
+  text-align: left;
+  width: 500px;
+  display: inline-block;
   background-color: #f4f4ef;
   padding: 0% 30%;
+}
+
+div.Author {
+  float: right;
+  color: #999;
+  cursor: pointer;
+  max-width: 100px;
+  text-overflow: hidden;
+}
+
+div.Title, div.PostBody {
+  cursor: pointer;
+  margin-left: 50px;
+}
+
+div.Category {
+  float: right;
+  cursor: pointer;
+  max-width: 100px;
+  text-overflow: hidden;
+}
+
+div.VoteScore {
+  float: left;
+  cursor: pointer;
+  width: 50px;
+  text-align: center;
+  max-width: 100px;
+  text-overflow: hidden;
+}
+
+div.Score {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
 }
 
 /*div.Post > label {

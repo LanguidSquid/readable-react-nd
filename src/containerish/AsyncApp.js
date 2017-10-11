@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import Post from './Post'
 import '../App.css';
 import '../index.css';
 import {
@@ -51,14 +52,7 @@ class AsyncApp extends Component {
         </div>
         <div className="content">
           {!this.isEmpty(posts) && posts.posts.map(post => (
-            <div className="Post">
-              <label>
-                {post.title}
-              </label>
-              <p>
-                {post.body}
-              </p>
-            </div>
+            <Post post={post}/>
           ))}
         </div>
       </div>
