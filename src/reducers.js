@@ -4,6 +4,8 @@ import {
   REQUEST_CATEGORIES,
   ADD_POST,
   RECEIVE_POSTS,
+  UPVOTE_POST,
+  DOWNVOTE_POST,
   ADD_COMMENT
 } from './actions'
 import { combineReducers } from 'redux'
@@ -35,6 +37,17 @@ function posts (state = {}, action) {
       })
     default:
       return state
+  }
+}
+
+function handleVotes (state = {}, action) {
+  switch (action.type) {
+    case UPVOTE_POST:
+      return state
+    case DOWNVOTE_POST:
+      return state
+    default:
+       return state
   }
 }
 

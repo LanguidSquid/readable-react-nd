@@ -16,7 +16,7 @@ body {
   color: white;
 }
 
-li {
+li, a, a:visited {
   list-style: none;
   display: inline;
   text-align: center;
@@ -25,9 +25,11 @@ li {
   cursor: pointer;
   -webkit-transition: color .5s;
   transition: color .5s;
+  text-decoration: none;
+  color: white;
 }
 
-li:hover {
+li:hover, a:hover {
   color: #ADD8E6;
 }
 

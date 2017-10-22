@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
+import { Link, Route } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import Post from './Post'
+import CategorizedPosts from './CategorizedPosts'
 import '../App.css';
 import '../index.css';
 import {
   getCategories,
-  getPosts
+  getPosts,
+  upvotePost,
+  downvotePost,
 } from '../actions'
 
 class AsyncApp extends Component {
@@ -40,19 +43,24 @@ class AsyncApp extends Component {
           <div className="table">
             <ul className="MenuBar">
               <li>
-                home
+                <Link to='/'>home</Link>
               </li>
             {!this.isEmpty(categories) && categories.categories.map(category => (
               <li>
-                {category.name}
+                <Link to={category.name}>{category.name}</Link>
               </li>
             ))}
             </ul>
           </div>
         </div>
         <div className="content">
-          {!this.isEmpty(posts) && posts.posts.map(post => (
-            <Post post={post}/>
+          <Route exact path='/' render={() => (
+            <CategorizedPosts posts={posts} category=''/>
+          )}/>
+          {!this.isEmpty(categories) && categories.categories.map(category => (
+          <Route path={category.name} render={() => (
+            <CategorizedPosts posts={posts} category={category.name}/>
+          )}/>
           ))}
         </div>
       </div>
