@@ -60,7 +60,7 @@ export function downvotePost({ id }) {
 export function getPosts() {
   return dispatch => {
     dispatch(requestCategories())
-    return fetch(`http://localhost:3001/posts`, { headers: { 'Authorization': 'whatever-you-want' }} )
+    return fetch(`http://localhost:3001/posts`, { headers: { 'Authorization': 'cakelolgarbage' }} )
       .then(response => {
         console.log(response)
         return response.json()
@@ -80,7 +80,7 @@ function receiveCategories(json) {
 export function getCategories() {
   return dispatch => {
     dispatch(requestCategories())
-    return fetch(`http://localhost:3001/categories`, { headers: { 'Authorization': 'whatever-you-want' }} )
+    return fetch(`http://localhost:3001/categories`, { headers: { 'Authorization': 'cakelolgarbage' }} )
       .then(response => {
         console.log(response)
         return response.json()

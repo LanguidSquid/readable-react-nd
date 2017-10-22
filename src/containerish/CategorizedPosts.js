@@ -22,7 +22,7 @@ class CategorizedPosts extends Component {
 
   render() {
   	const { posts, category } = this.props
-    console.log(posts.posts);
+    console.log(this.props);
   	return (
 	    <div className="content">
 	      {!this.isEmpty(posts) && posts.posts.map(post => (
