@@ -26,9 +26,7 @@ class CategorizedPosts extends Component {
   	return (
 	    <div className="content">
 	      {!this.isEmpty(posts) && posts.posts.map(post => (
-	        <Post post={post}
-	          increment={(post) => {upvotePost}}
-	          decrement={(post) => {downvotePost}}/>
+	        <Post post={post}/>
 	      ))}
 	    </div>
     )

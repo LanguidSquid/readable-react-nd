@@ -5,4 +5,4 @@ export const fetchCategories = () => fetch(`http://localhost:3001/categories`, {
 export const changeVoteScore = (id, voteType) => fetch(`http://localhost:3001/posts/:id`,
 	{ method: 'POST',
 	  headers: { 'Authorization': 'whatever-you-want' }})
-      .then( (res) => { return(res.json().categories) })
+      .then( (res) => { return(res.json()) })

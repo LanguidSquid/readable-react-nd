@@ -3,19 +3,33 @@ import AngleUpIcon from 'react-icons/lib/fa/angle-up'
 import AngleDownIcon from 'react-icons/lib/fa/angle-down'
 import '../App.css';
 import '../index.css';
+import {
+  getCategories,
+  getPosts,
+  upvotePost,
+  downvotePost,
+} from '../actions'
 
-export default function Post ({ post, increment, decrement }) {
+export default function Post ({ post }) {
   	return (
       <div className="Post">
 		  <div className="VoteScore" title={post.voteScore}>
 		    <button className='icon-btn'>
-		      <AngleUpIcon size={20}/>
+		      <AngleUpIcon size={20} value={post.id} onClick={(event) => {
+		      	if(!!event.target.attributes.getNamedItem('value')){
+		      		upvotePost(event.target.attributes.getNamedItem('value').value)
+		      	}
+		      }}/>
 		    </button>
 		    <div className="Score"   title="score">
 		      {post.voteScore}
 		    </div>
 		    <button className='icon-btn'>
-		      <AngleDownIcon size={20}/>
+		      <AngleDownIcon size={20} value={post.id} onClick={(event) => {
+		      	if(!!event.target.attributes.getNamedItem('value')){
+		      		downvotePost(event.target.attributes.getNamedItem('value').value)
+		  		}
+		      }}/>
 		    </button>
 		  </div>
 		  <div className="Author" title="author">

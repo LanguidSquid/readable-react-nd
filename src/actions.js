@@ -41,19 +41,43 @@ function receivePosts(json) {
   }
 }
 
-export function upvotePost({ id }) {
-  console.log(id)
+export function upvotePost(id) {
   return {
     type: UPVOTE_POST,
     id: id
   }
 }
 
-export function downvotePost({ id }) {
+export function downvote(id) {
   console.log(id)
-  return {
+    return {
     type: DOWNVOTE_POST,
     id: id
+  }
+}
+
+export function downvotePost(id) {
+  var myHeaders = { headers: { 'Authorization': 'cakelolgarbage', 'Content-Type': 'application/json' }}
+  var requestBody = { 'option': 'downVote'}
+
+  var myInit = { method: 'POST',
+               headers: myHeaders,
+               body: requestBody,
+               mode: 'cors',
+               cache: 'default' }
+
+  console.log(myInit)
+
+  return (dispatch, id) => {
+    console.log(dispatch)
+    console.log(id)
+    dispatch(downvote(id))
+    return fetch(`http://localhost:3001/posts/{id}`, myInit )
+      .then(response => {
+        console.log(response)
+        return response.json()
+      })
+      .then(json => dispatch(receivePosts(json)))
   }
 }
 
