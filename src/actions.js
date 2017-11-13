@@ -10,6 +10,7 @@ export const ADD_POST = 'ADD_POST'
 export const UPVOTE_POST = 'UPVOTE_POST'
 export const DOWNVOTE_POST = 'DOWNVOTE_POST'
 export const ADD_COMMENT = 'ADD_COMMENT'
+export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
 
 const url = `http://localhost:3001/categories`;
 
@@ -110,5 +111,20 @@ export function getCategories() {
         return response.json()
       })
       .then(json => dispatch(receiveCategories(json.categories)))
+  }
+}
+
+function receiveComments(json) {
+  console.log(json)
+  return {
+    type: RECEIVE_COMMENTS,
+    categories: json
+  }
+}
+
+export function getComments(id) {
+  return dispatch => {
+   ReadableAPIUtil.getCommentsByPost(id)
+      .then(json => dispatch(receiveComments(json)))
   }
 }

@@ -1,8 +1,8 @@
 const uuidv1 = require('uuid/v1')
 
 const url = `http://localhost:3001/categories`;
-const authorizationHeader = { headers: { 'Authorization': 'cakelolgarbage' }}
-const authorizationHeaderMethodPost = { method: 'POST', headers: { 'Authorization': 'cakelolgarbage' }}
+const authorizationHeader = { headers: { 'Authorization': 'cakelolgarbage', 'Content-Type': 'application/json' }}
+const authorizationHeaderMethodPost = { method: 'POST', headers: { 'Authorization': 'cakelolgarbage', 'Content-Type': 'application/json' }}
 
 
 // GET /categories
@@ -33,7 +33,7 @@ export function fetchPosts() {
 
 // POST /posts
 export function createPost(post) {
-	var payload = { method: 'POST', headers: { 'Authorization': 'cakelolgarbage' }}
+	var payload = { method: 'POST', headers: { 'Authorization': 'cakelolgarbage', 'Content-Type': 'application/json' }}
 	post.id = uuidv1()
 	post.timestamp = Date.now()
 	payload.body = post
@@ -58,7 +58,7 @@ export function getPostById(id) {
 export function upVotePost(id) {
 	var uri = `http://localhost:3001/posts/` + id
 
-	var upVotePayload = { method: 'POST', headers: { 'Authorization': 'cakelolgarbage' }}
+	var upVotePayload = { method: 'POST', headers: { 'Authorization': 'cakelolgarbage', 'Content-Type': 'application/json' }}
 	upVotePayload.body = {"option": "downVote"}
 
 	return fetch(uri, upVotePayload )
@@ -71,7 +71,7 @@ export function upVotePost(id) {
 export function downVotePost(id) {
 	var uri = `http://localhost:3001/posts/` + id
 
-	var downVotePayload = { method: 'POST', headers: { 'Authorization': 'cakelolgarbage' }}
+	var downVotePayload = { method: 'POST', headers: { 'Authorization': 'cakelolgarbage', 'Content-Type': 'application/json' }}
 	downVotePayload.body = {"option": "upVote"}
 
 	return fetch(uri, downVotePayload )
@@ -84,7 +84,7 @@ export function downVotePost(id) {
 export function editPost(id, title, body) {
 	var uri = `http://localhost:3001/posts/` + id
 
-	var editPostPayload = { method: 'PUT', headers: { 'Authorization': 'cakelolgarbage' }}
+	var editPostPayload = { method: 'PUT', headers: { 'Authorization': 'cakelolgarbage', 'Content-Type': 'application/json' }}
 	editPostPayload.body = {"title": title, "body": body}
 
 	console.log(editPostPayload)
@@ -107,7 +107,7 @@ export function getCommentsByPost(id) {
 
 // POST /comments
 export function makeComment(comment) {
-	var commentPayload = { method: 'POST', headers: { 'Authorization': 'cakelolgarbage' }}
+	var commentPayload = { method: 'POST', headers: { 'Authorization': 'cakelolgarbage', 'Content-Type': 'application/json' }}
 	comment.id = uuidv1()
 	comment.timestamp = Date.now()
 	commentPayload.body = comment
@@ -132,7 +132,7 @@ export function getCommentById(id) {
 export function upVoteComment(id) {
 	var uri = `http://localhost:3001/comments/` + id
 
-	var upVotePayload = { method: 'POST', headers: { 'Authorization': 'cakelolgarbage' }}
+	var upVotePayload = { method: 'POST', headers: { 'Authorization': 'cakelolgarbage', 'Content-Type': 'application/json' }}
 	upVotePayload.body = {"option": "downVote"}
 
 	return fetch(uri, upVotePayload )
@@ -145,7 +145,7 @@ export function upVoteComment(id) {
 export function downVoteComment(id) {
 	var uri = `http://localhost:3001/comments/` + id
 
-	var downVotePayload = { method: 'POST', headers: { 'Authorization': 'cakelolgarbage' }}
+	var downVotePayload = { method: 'POST', headers: { 'Authorization': 'cakelolgarbage', 'Content-Type': 'application/json' }}
 	downVotePayload.body = {"option": "upVote"}
 
 	return fetch(uri, downVotePayload )
@@ -158,7 +158,7 @@ export function downVoteComment(id) {
 export function editComment(id, body) {
 	var uri = `http://localhost:3001/comments/` + id
 
-	var editCommentPayload = { method: 'PUT', headers: { 'Authorization': 'cakelolgarbage' }}
+	var editCommentPayload = { method: 'PUT', headers: { 'Authorization': 'cakelolgarbage', 'Content-Type': 'application/json' }}
 	var editCommentRequest = {"body": body}
 	editCommentRequest.timestamp = Date.now()
 	editCommentPayload.body = editCommentRequest

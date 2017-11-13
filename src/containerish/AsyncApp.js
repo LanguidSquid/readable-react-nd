@@ -19,34 +19,34 @@ class AsyncApp extends Component {
   }
 
   componentDidMount() {
-    var post = {
-      title: 'purple',
-      body: 'making new posts is easy.',
-      author: 'samiam',
-      category: 'react'
-    }
+    // var post = {
+    //   title: 'purple',
+    //   body: 'making new posts is easy.',
+    //   author: 'samiam',
+    //   category: 'react'
+    // }
 
-    ReadableAPIUtil.createPost(post)
-    ReadableAPIUtil.fetchCategories().then(json => console.log(json))
-    ReadableAPIUtil.fetchPostsByCategory('react').then(json => console.log(json))
-    ReadableAPIUtil.fetchPosts().then(json => console.log(json))
-    ReadableAPIUtil.downVotePost('8xf0y6ziyjabvozdd253nd').then(json => console.log(json))
-    ReadableAPIUtil.upVotePost('8xf0y6ziyjabvozdd253nd').then(json => console.log(json))
-    ReadableAPIUtil.getPostById('8xf0y6ziyjabvozdd253nd').then(json => console.log(json))
-    ReadableAPIUtil.editPost('8xf0y6ziyjabvozdd253nd', 'foreign affairs', 'actually a title').then(json => console.log(json))
-    ReadableAPIUtil.getCommentsByPost('8xf0y6ziyjabvozdd253nd').then(json => console.log(json))
+    // ReadableAPIUtil.createPost(post)
+    // ReadableAPIUtil.fetchCategories().then(json => console.log(json))
+    // ReadableAPIUtil.fetchPostsByCategory('react').then(json => console.log(json))
+    // ReadableAPIUtil.fetchPosts().then(json => console.log(json))
+    // ReadableAPIUtil.downVotePost('8xf0y6ziyjabvozdd253nd').then(json => console.log(json))
+    // ReadableAPIUtil.upVotePost('8xf0y6ziyjabvozdd253nd').then(json => console.log(json))
+    // ReadableAPIUtil.getPostById('8xf0y6ziyjabvozdd253nd').then(json => console.log(json))
+    // ReadableAPIUtil.editPost('8xf0y6ziyjabvozdd253nd', 'foreign affairs', 'actually a title').then(json => console.log(json))
+    // ReadableAPIUtil.getCommentsByPost('8xf0y6ziyjabvozdd253nd').then(json => console.log(json))
 
-    var commentBody = {
-      parentId: '8xf0y6ziyjabvozdd253nd',
-      body: 'making new comments is easy.',
-      author: 'samiam'
-    }
+    // var commentBody = {
+    //   parentId: '8xf0y6ziyjabvozdd253nd',
+    //   body: 'making new comments is easy.',
+    //   author: 'samiam'
+    // }
 
-    ReadableAPIUtil.makeComment(commentBody).then(json => console.log(json))
-    ReadableAPIUtil.getCommentById('894tuq4ut84ut8v4t8wun89g').then(json => console.log(json))
-    ReadableAPIUtil.upVoteComment('894tuq4ut84ut8v4t8wun89g').then(json => console.log(json))
-    ReadableAPIUtil.downVoteComment('894tuq4ut84ut8v4t8wun89g').then(json => console.log(json))
-    ReadableAPIUtil.editComment('894tuq4ut84ut8v4t8wun89g', 'new comment body').then(json => console.log(json))
+    // ReadableAPIUtil.makeComment(commentBody).then(json => console.log(json))
+    // ReadableAPIUtil.getCommentById('894tuq4ut84ut8v4t8wun89g').then(json => console.log(json))
+    // ReadableAPIUtil.upVoteComment('894tuq4ut84ut8v4t8wun89g').then(json => console.log(json))
+    // ReadableAPIUtil.downVoteComment('894tuq4ut84ut8v4t8wun89g').then(json => console.log(json))
+    // ReadableAPIUtil.editComment('894tuq4ut84ut8v4t8wun89g', 'new comment body').then(json => console.log(json))
 
     console.log(this.props)
     const { dispatch } = this.props
